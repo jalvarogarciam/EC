@@ -1,0 +1,24 @@
+
+hola64:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000401000 <_start>:
+  401000:	e8 05 00 00 00       	call   40100a <write>
+  401005:	e8 20 00 00 00       	call   40102a <exit>
+
+000000000040100a <write>:
+  40100a:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+  401011:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+  401018:	48 c7 c6 00 20 40 00 	mov    $0x402000,%rsi
+  40101f:	48 8b 14 25 10 20 40 	mov    0x402010,%rdx
+  401026:	00 
+  401027:	0f 05                	syscall 
+  401029:	c3                   	ret    
+
+000000000040102a <exit>:
+  40102a:	48 c7 c0 3c 00 00 00 	mov    $0x3c,%rax
+  401031:	48 31 ff             	xor    %rdi,%rdi
+  401034:	0f 05                	syscall 
+  401036:	c3                   	ret    

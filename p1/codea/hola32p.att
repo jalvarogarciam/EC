@@ -1,0 +1,27 @@
+
+hola32p:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+08049000 <write>:
+ 8049000:	68 0a 20 20 20       	push   $0x2020200a
+ 8049005:	68 6e 64 6f 21       	push   $0x216f646e
+ 804900a:	68 2c 20 6d 75       	push   $0x756d202c
+ 804900f:	68 68 6f 6c 61       	push   $0x616c6f68
+ 8049014:	b8 04 00 00 00       	mov    $0x4,%eax
+ 8049019:	bb 01 00 00 00       	mov    $0x1,%ebx
+ 804901e:	89 e1                	mov    %esp,%ecx
+ 8049020:	ba 0d 00 00 00       	mov    $0xd,%edx
+ 8049025:	cd 80                	int    $0x80
+ 8049027:	83 c4 10             	add    $0x10,%esp
+ 804902a:	c3                   	ret    
+
+0804902b <exit>:
+ 804902b:	b8 01 00 00 00       	mov    $0x1,%eax
+ 8049030:	31 db                	xor    %ebx,%ebx
+ 8049032:	cd 80                	int    $0x80
+
+08049034 <_start>:
+ 8049034:	e8 c7 ff ff ff       	call   8049000 <write>
+ 8049039:	e8 ed ff ff ff       	call   804902b <exit>

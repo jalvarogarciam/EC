@@ -1,0 +1,4 @@
+gdb bomba
+file bomba
+layout asm
+layout regs

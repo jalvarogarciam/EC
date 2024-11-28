@@ -1,0 +1,34 @@
+
+printf32e:     file format elf32-i386
+
+
+Disassembly of section .plt:
+
+08049000 <printf@plt-0x10>:
+ 8049000:	ff 35 04 b0 04 08    	push   0x804b004
+ 8049006:	ff 25 08 b0 04 08    	jmp    *0x804b008
+ 804900c:	00 00                	add    %al,(%eax)
+	...
+
+08049010 <printf@plt>:
+ 8049010:	ff 25 0c b0 04 08    	jmp    *0x804b00c
+ 8049016:	68 00 00 00 00       	push   $0x0
+ 804901b:	e9 e0 ff ff ff       	jmp    8049000 <printf@plt-0x10>
+
+08049020 <exit@plt>:
+ 8049020:	ff 25 10 b0 04 08    	jmp    *0x804b010
+ 8049026:	68 08 00 00 00       	push   $0x8
+ 804902b:	e9 d0 ff ff ff       	jmp    8049000 <printf@plt-0x10>
+
+Disassembly of section .text:
+
+08049030 <_start>:
+ 8049030:	e8 00 00 00 00       	call   8049035 <main>
+
+08049035 <main>:
+ 8049035:	ff 35 14 b0 04 08    	push   0x804b014
+ 804903b:	68 18 b0 04 08       	push   $0x804b018
+ 8049040:	e8 cb ff ff ff       	call   8049010 <printf@plt>
+ 8049045:	83 c4 08             	add    $0x8,%esp
+ 8049048:	6a 00                	push   $0x0
+ 804904a:	e8 d1 ff ff ff       	call   8049020 <exit@plt>

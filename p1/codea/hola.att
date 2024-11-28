@@ -1,0 +1,30 @@
+
+hola:     file format elf64-x86-64
+
+
+Disassembly of section .plt:
+
+0000000000401000 <exit@plt-0x10>:
+  401000:	ff 35 02 20 00 00    	push   0x2002(%rip)        # 403008 <_GLOBAL_OFFSET_TABLE_+0x8>
+  401006:	ff 25 04 20 00 00    	jmp    *0x2004(%rip)        # 403010 <_GLOBAL_OFFSET_TABLE_+0x10>
+  40100c:	0f 1f 40 00          	nopl   0x0(%rax)
+
+0000000000401010 <exit@plt>:
+  401010:	ff 25 02 20 00 00    	jmp    *0x2002(%rip)        # 403018 <exit@GLIBC_2.2.5>
+  401016:	68 00 00 00 00       	push   $0x0
+  40101b:	e9 e0 ff ff ff       	jmp    401000 <exit@plt-0x10>
+
+Disassembly of section .text:
+
+0000000000401020 <_start>:
+  401020:	e8 05 00 00 00       	call   40102a <write>
+  401025:	e8 e6 ff ff ff       	call   401010 <exit@plt>
+
+000000000040102a <write>:
+  40102a:	48 c7 c0 01 00 00 00 	mov    $0x1,%rax
+  401031:	48 c7 c7 01 00 00 00 	mov    $0x1,%rdi
+  401038:	48 c7 c6 20 30 40 00 	mov    $0x403020,%rsi
+  40103f:	48 8b 14 25 30 30 40 	mov    0x403030,%rdx
+  401046:	00 
+  401047:	0f 05                	syscall 
+  401049:	c3                   	ret    
